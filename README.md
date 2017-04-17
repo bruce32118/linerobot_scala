@@ -8,7 +8,7 @@ LineBot: Using scala to implement LineBot
 #### 根據上圖用Heroku去架設機器人服務系統，然後將scala code部屬到Heroku上
 
 #### scala 所使用到的套件
-* akka http 處理http reaqest response 
+* akka http 處理http request response 
 * jsoup 處理html解析 
 * net.liftweb 處理request裡的json格式
 
