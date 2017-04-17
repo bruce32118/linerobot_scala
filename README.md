@@ -35,6 +35,6 @@ How to Use
 * git push heroku master(將code部屬到heroku)
 
 #### 實測Line robot
-![Imgur](http://i.imgur.com/1wpw9Es.png)
-![Imgur](http://i.imgur.com/r53P973.png)
+![Imgur](http://i.imgur.com/1wpw9Es.png)<br>
+![Imgur](http://i.imgur.com/r53P973.png)<br>
 ![Imgur](http://i.imgur.com/AEwZBFc.png)
