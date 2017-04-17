@@ -43,6 +43,7 @@ object pttBeautyCrawler {
                 val beauty_image_url = "https:" + bigelement.attr("href") + ".jpg" + "," + big
                 beautyURL += (count -> beauty_image_url)
                 count = count + 1
+                 
              }
            }
          }
