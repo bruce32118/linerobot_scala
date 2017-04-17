@@ -76,27 +76,23 @@ object robotstart{
 			
 	def shutdownHook(system: ActorSystem, bindingFuture: Future[ServerBinding]) {
 			
-				implicit val executionContext = system.dispatcher
-			
-			
-				bindingFuture
-					.flatMap(_.unbind()) 
-					.onComplete(_ => system.terminate()) 
-			
-			
-				bindingFuture
-					.onFailure {
-						case ex: Exception =>
-						println(s"Failed to bind to $host:$port")
+		implicit val executionContext = system.dispatcher	
+		bindingFuture
+			.flatMap(_.unbind()) 
+			.onComplete(_ => system.terminate()) 	
+		
+		bindingFuture
+			.onFailure {
+				case ex: Exception =>
+				println(s"Failed to bind to $host:$port")
 						
-					}
-			
-			
 			}
+			
+			
+		}
 
     	def getlocalIp() : String = InetAddress.getLocalHost.getHostAddress
-
- 		
+		
 }
 
 
