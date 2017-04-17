@@ -39,7 +39,7 @@ object tojson{
    }
    
    case user_text if(user_text == "Hello,world") => {
-      //一開始linebot api 會 send a dummy webhook to this webhook URL. You can verify that the SSL certificate is correct.
+      //一開始linebot api 會 send text 為 "Hello,world"的request 到你設定的 webhook URL.
       reply_text = "check"
 
    }
