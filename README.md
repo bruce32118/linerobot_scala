@@ -2,7 +2,7 @@ LineBot: Using scala to implement LineBot
 =============
 ## Introduction
 ### 主要使用 Heroku + Scala + Line api 去實作
-#### 讓我們來看一下Line官方doc的流程圖吧
+#### Line官方文件的流程圖
 ![Alt text](https://developers.line.me/wp-content/uploads/2016/09/bottrial-fig1.png)
 
 #### 根據上圖我是用Heroku去架設我的機器人服務系統，然後將scala code部屬到Heroku上
