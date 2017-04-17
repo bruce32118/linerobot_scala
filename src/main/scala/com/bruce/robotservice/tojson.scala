@@ -9,7 +9,7 @@ import scalaj.http._
 import scalaj.http.Http
 
 object tojson{
-  
+  //call pttBeautyCrawler
   private lazy val BeautyMap = pttBeautyCrawler()
   private lazy val BeautyMapsize = BeautyMap.size - 1
 
