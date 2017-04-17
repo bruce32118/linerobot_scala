@@ -28,7 +28,7 @@ object robotstart{
 		implicit val materializer = ActorMaterializer()
 		implicit val executionContext = system.dispatcher
 
-
+		//透過line WebHooks連到自己建置的伺服器上，自己的伺服器依據送過來的訊息，依照寫好的規則，回覆給使用者。
 		val route = path("callback")(
                        post(
                         entity(as[String]){
@@ -45,7 +45,7 @@ object robotstart{
                              println("replydata :" + replydata.get)
 				
                               if(replydata != None){
-
+			      //吐資料給line webhooks
                               val result = scalaj.http.Http("https://api.line.me/v2/bot/message/reply")
                                     .postData(replydata.get)
                                     .headers(Seq("Authorization" -> ("Bearer "+accesstoken)))
@@ -60,9 +60,10 @@ object robotstart{
                        )
                      )
 
-			
+		//啟動服務	
 		val bindingFuture = akka.http.scaladsl.Http().bindAndHandle(route, host, port)
-			
+		
+		//確保服務掛掉時會執行以下方法
 		sys.addShutdownHook(new Thread {
 				override
 				def run() {
@@ -70,8 +71,10 @@ object robotstart{
 					shutdownHook(system, bindingFuture)
 					}
 				})
-				println(s"Server online at http://$host:$port/\nPress 'Ctrl+C' to stop...")
-				while(true){}
+		
+		println(s"Server online at http://$host:$port/\nPress 'Ctrl+C' to stop...")
+		while(true){}
+		
 			}
 			
 	def shutdownHook(system: ActorSystem, bindingFuture: Future[ServerBinding]) {
@@ -91,6 +94,7 @@ object robotstart{
 			
 		}
 
+	//拿取目前機器的ip
     	def getlocalIp() : String = InetAddress.getLocalHost.getHostAddress
 		
 }
