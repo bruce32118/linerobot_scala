@@ -44,7 +44,7 @@ object robotstart{
                              val replydata = tojson(replyToken, user_text)                     
                              println("replydata :" + replydata.get)
 				
-                              if(replydata != None){
+                              if(replydata != None && replydata != "check"){
 			      //吐資料給line webhooks
                               val result = scalaj.http.Http("https://api.line.me/v2/bot/message/reply")
                                     .postData(replydata.get)
