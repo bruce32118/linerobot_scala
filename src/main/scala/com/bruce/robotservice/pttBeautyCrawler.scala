@@ -18,7 +18,6 @@ object pttBeautyCrawler {
         if(element.attr("href").contains("index2")) main = element.attr("href")
       }
    
-
       val ptt_num = main.split("index")(1).split("\\.")(0) 
      
       for(subtraction <- -1 to 30){
