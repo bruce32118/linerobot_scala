@@ -64,7 +64,7 @@ object tojson{
   }
   
 
-   case user_text if(user_text.contains("!點歌-") && user_text.split(" ").length > 1 ) => {
+   case user_text if(user_text.contains("!點歌-") && user_text.split("-").length > 1 ) => {
       //串youtube api 實作youtube 搜尋功能 返回搜尋列的第一筆結果
       reply_text = "song"
       val songtext = user_text.split("-")(1)
