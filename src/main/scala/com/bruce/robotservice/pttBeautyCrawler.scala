@@ -42,6 +42,7 @@ object pttBeautyCrawler {
              if(bigelement.attr("href").contains("imgur.com")) {             
 
                 val beauty_image_url = "https:" + bigelement.attr("href") + ".jpg" + "," + big
+                //將撈到的圖片連結塞到map裡 
                 beautyURL += (count -> beauty_image_url)
                 count = count + 1
                  
@@ -50,6 +51,7 @@ object pttBeautyCrawler {
          }
         }       
        }
+    //回傳map
     beautyURL 
     }
 }
