@@ -71,7 +71,7 @@ object tojson{
 
       val songMap =  scala.collection.immutable.Map("part"->"snippet","q"->songtext,"key"->"yourappkey")
 
-      //根據youtube所需要的app key，發出get request
+      //根據youtube所需要驗證的key，發出get request
       val result = Http("https://www.googleapis.com/youtube/v3/search").params(songMap).asString
 
       val title = result.toString.split("title\": \"")(1).split("\"")(0)
