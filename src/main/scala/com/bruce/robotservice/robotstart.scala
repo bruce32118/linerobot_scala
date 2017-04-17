@@ -54,7 +54,8 @@ object robotstart{
                                println("result.asString = : " + result.asString)
                               
                               }
-
+				
+                             //回傳http status 200
                              complete(StatusCodes.OK)
                           }
                        )
