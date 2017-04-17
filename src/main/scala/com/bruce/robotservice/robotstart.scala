@@ -16,37 +16,34 @@ import scalaj.http._
 import scalaj.http.Http
 import java.net._
 
-object robotstart extends Serializable{
+object robotstart{
          
-        case class responseMessage(replyToken: String, message: String)
-
-		private val (host, port) = (getlocalIp(), Properties.envOrElse("PORT", "8080").toInt)
-		private val (channelID, channelSecret) = ("yourchannelID", "yourchannelSecret")
+	private val (host, port) = (getlocalIp(), Properties.envOrElse("PORT", "8080").toInt)
+	private val (channelID, channelSecret) = ("yourchannelID", "yourchannelSecret")
         private val (accesstoken) = ("youraccesstoken")
 
- 		def main(args:Array[String]){
+ 	def main(args:Array[String]){
 
-			implicit val system = ActorSystem("robot-system")
-			implicit val materializer = ActorMaterializer()
-			implicit val executionContext = system.dispatcher
+		implicit val system = ActorSystem("robot-system")
+		implicit val materializer = ActorMaterializer()
+		implicit val executionContext = system.dispatcher
 
 
-			val route = path("callback")(
+		val route = path("callback")(
                        post(
                         entity(as[String]){
                          json =>
                              println("json :" + json)
+				
                              val replyToken = json.split("replyToken")(1).split("\",")(0).split("\":\"")(1)
                              println("token : " + replyToken)
+				
                              val user_text = json.split("text")(2).split(":\"")(1).split("\"")(0).replace("！","!")
-
                              println("user_text :"+ user_text)
-
-                             val replydata = tojson(replyToken, user_text)
-                     
+				
+                             val replydata = tojson(replyToken, user_text)                     
                              println("replydata :" + replydata.get)
-
-
+				
                               if(replydata != None){
 
                               val result = scalaj.http.Http("https://api.line.me/v2/bot/message/reply")
@@ -64,9 +61,9 @@ object robotstart extends Serializable{
                      )
 
 			
-			val bindingFuture = akka.http.scaladsl.Http().bindAndHandle(route, host, port)
+		val bindingFuture = akka.http.scaladsl.Http().bindAndHandle(route, host, port)
 			
-			sys.addShutdownHook(new Thread {
+		sys.addShutdownHook(new Thread {
 				override
 				def run() {
 					print("close")
@@ -77,7 +74,7 @@ object robotstart extends Serializable{
 				while(true){}
 			}
 			
-		def shutdownHook(system: ActorSystem, bindingFuture: Future[ServerBinding]) {
+	def shutdownHook(system: ActorSystem, bindingFuture: Future[ServerBinding]) {
 			
 				implicit val executionContext = system.dispatcher
 			
