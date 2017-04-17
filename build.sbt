@@ -8,14 +8,9 @@ resolvers += Resolver.bintrayRepo("tabdulradi", "maven")
 
 libraryDependencies += "net.liftweb" % "lift-json_2.11" % "2.6.2"
 
-libraryDependencies += "com.typesafe" % "config" % "1.3.1"
-
 libraryDependencies += "com.typesafe.akka" % "akka-http_2.11" % "10.0.4"
 
-
 libraryDependencies += "joda-time" % "joda-time" % "2.9.7"
-
-libraryDependencies += "com.github.blemale" % "scaffeine_2.11" % "2.0.0"
 
 libraryDependencies += "org.scalaj" % "scalaj-http_2.11" % "2.3.0"
 
