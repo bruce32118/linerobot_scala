@@ -10,8 +10,8 @@ import scalaj.http.Http
 
 object tojson{
   
-  private val BeautyMap = pttBeautyCrawler()
-  private val BeautyMapsize = BeautyMap.size - 1
+  private lazy val BeautyMap = pttBeautyCrawler()
+  private lazy val BeautyMapsize = BeautyMap.size - 1
 
   def apply(replyToken: String, user_text: String) : Option[String] = {
   
