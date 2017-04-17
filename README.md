@@ -11,3 +11,8 @@ LineBot: Using scala to implement LineBot
 * akka http 處理http reaqest response 
 * jsoup 處理html解析 
 * net.liftweb 處理request裡的json格式
+
+#### 實作功能
+* 一般簡易答覆
+* 串youtube api 實作點歌功能
+* 撈ptt表特版 並回傳圖片
