@@ -33,3 +33,8 @@ How to Use
 * git init.....就是git的一些操作，commit完後
 * heroku create
 * git push heroku master(將code部屬到heroku)
+
+#### 實測Line robot
+![Imgur](http://i.imgur.com/bmdCA6I.jpg)
+![Imgur](http://i.imgur.com/9YuJp7v.jpg)
+![Imgur](http://i.imgur.com/RytrzWl.jpg)
