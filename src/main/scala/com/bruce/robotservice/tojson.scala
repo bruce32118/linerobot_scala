@@ -31,14 +31,14 @@ object tojson{
 
    }
 
-   case user_text if(user_text == "!指令") => {
+   case "!指令" => {
       //列出有的指令
       reply_text = robottext.keySet.toString.split("Set\\(")(1).split("\\)")(0)     
       reply_value = List(("type" -> "text") ~ ("text" -> reply_text))
    
    }
    
-   case user_text if(user_text == "Hello,world") => {
+   case "Hello,world" => {
       //一開始linebot api 會 send text 為 "Hello,world"的request 到你設定的 webhook URL.
       reply_text = "check"
 
